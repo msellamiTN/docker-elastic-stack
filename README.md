@@ -221,12 +221,12 @@ Maintenant que la pile est en cours d'exécution, vous pouvez continuer et injec
 vous pour envoyer du contenu via TCP:
 
 `` `console
-# Utilisation de BSD netcat (Debian, Ubuntu, système MacOS, ...)
+'# Utilisation de BSD netcat (Debian, Ubuntu, système MacOS, ...)
 $ cat /path/to/logfile.log | nc -q0 localhost 5000
 ''
 
 `` `console
-# Utilisation de GNU netcat (CentOS, Fedora, MacOS Homebrew, ...)
+'# Utilisation de GNU netcat (CentOS, Fedora, MacOS Homebrew, ...)
 $ cat /path/to/logfile.log | nc -c localhost 5000
 ''
 

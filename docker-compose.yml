@@ -51,6 +51,9 @@ services:
       - elk
     depends_on:
       - elasticsearch
+    restart: always
+    mem_limit: 2g
+    
 
   kibana:
     build:

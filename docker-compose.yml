@@ -1,7 +1,21 @@
 version: '3.2'
 
 services:
-  elasticsearch:
+
+ jupyterlab:
+    image: jupyter/pyspark-notebook
+    container_name: jupyterlab
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+      - 9988:8888
+    volumes:
+      - shared-workspace:/opt/workspace
+    networks:
+      - localnet
+    restart: always
+
+elasticsearch:
     build:
       context: elasticsearch/
       args:

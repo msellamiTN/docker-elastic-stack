@@ -15,7 +15,7 @@ services:
       - localnet
     restart: always
 
-elasticsearch:
+  elasticsearch:
     build:
       context: elasticsearch/
       args:

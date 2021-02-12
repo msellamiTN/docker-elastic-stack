@@ -1,20 +1,6 @@
 version: '3.2'
 
 services:
-
- jupyterlab:
-    image: jupyter/pyspark-notebook
-    container_name: jupyterlab
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
-    ports:
-      - 9988:8888
-    volumes:
-      - shared-workspace:/opt/workspace
-    networks:
-      - localnet
-    restart: always
-
   elasticsearch:
     build:
       context: elasticsearch/
@@ -108,7 +94,7 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:32181'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://51.79.25.30:29092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
@@ -124,6 +110,18 @@ services:
     volumes:
     - ./scripts:/scripts
 
+  jupyterlab:
+    image: jupyter/pyspark-notebook
+    container_name: jupyterlab
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+      - 9988:8888
+    volumes:
+      - /work:/opt/workspace
+    networks:
+      - elk
+    restart: always
 networks:
   elk:
     driver: bridge

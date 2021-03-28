@@ -1,6 +1,6 @@
 # Pile Elastic (ELK) sur Docker
 
-[! [Version Elastic Stack] (https://img.shields.io/badge/Elastic%20Stack-7.10.2-00bfb3?style=flat&logo=elastic-stack)] (https://www.elastic.co/ blog / catégorie / communiqués)
+[! [Version Elastic Stack] (https://img.shields.io/badge/Elastic%20Stack-7.12.0-00bfb3?style=flat&logo=elastic-stack)] (https://www.elastic.co/ blog / catégorie / communiqués)
  
 
 Exécutez la dernière version de [Elastic stack] [elk-stack] avec Docker et Docker Compose.
@@ -255,7 +255,7 @@ Créez un modèle d'index via l'API Kibana:
 `` `console
 $ curl -XPOST -D- 'http://localhost:5601/api/saved_objects/index-pattern' \
     -H 'Content-Type: application/json' \
-    -H 'kbn-version: 7.10.2' \
+    -H 'kbn-version: 7.12.0' \
     -u elastic:<your generated elastic password> \
     -d '{"attributes":{"title":"logstash-*","timeFieldName":"@timestamp"}}'
 ''
